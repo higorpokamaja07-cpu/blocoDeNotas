@@ -7,39 +7,39 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <div class="container">
-        <div class="topo">
+    <main class="container">
+        <header class="topo">
             <div class="cabecalho">
-                <span class="etiqueta">Notas rapidas</span>
+                <span class="etiqueta">Notas rápidas</span>
                 <h1>Meu Bloco de Notas</h1>
             </div>
             <label class="seletor-tema" for="tema">
                 <span>Modo escuro</span>
-                <input type="checkbox" id="tema" aria-label="Ativar modo escuro">
+                <input type="checkbox" id="tema" aria-label="Alternar modo escuro">
                 <span class="interruptor" aria-hidden="true"></span>
             </label>
-        </div>
+        </header>
+
         <p>Suas anotações são salvas automaticamente no seu navegador.</p>
 
-        <div class="painel-informacoes">
+        <section class="painel-informacoes" aria-label="Informações do bloco de notas">
             <div class="cartao-info">
                 <span class="legenda-info">Status</span>
-                <strong id="statusSalvamento">Salvamento automatico ativo</strong>
+                <strong id="statusSalvamento" role="status" aria-live="polite">Salvamento automático ativo</strong>
             </div>
             <div class="cartao-info">
                 <span class="legenda-info">Caracteres</span>
                 <strong id="contadorCaracteres">0</strong>
             </div>
-        </div>
-        
-        <textarea id="blocoDeNotas" placeholder="Comece a digitar aqui..."></textarea>
+        </section>
 
-        <div class="rodape">
-            <span>Seu conteudo fica salvo localmente neste navegador.</span>
+        <textarea id="blocoDeNotas" placeholder="Comece a digitar aqui..." aria-label="Área de anotações"></textarea>
+
+        <footer class="rodape">
+            <span>Seu conteúdo fica salvo localmente neste navegador.</span>
             <span>Interface otimizada para claro e escuro.</span>
-        </div>
-    </div>
+        </footer>
+    </main>
 
     <script src="script.js"></script>
 </body>
