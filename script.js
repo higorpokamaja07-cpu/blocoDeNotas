@@ -18,6 +18,7 @@ const SELECTORS = {
 
 const blocoDeNotas = document.querySelector(SELECTORS.note);
 const temaCheckbox = document.querySelector(SELECTORS.themeToggle);
+const temaTexto = document.querySelector('#temaTexto');
 const contadorCaracteres = document.querySelector(SELECTORS.counter);
 const statusSalvamento = document.querySelector(SELECTORS.status);
 
@@ -57,9 +58,17 @@ const updateStatus = (message) => {
     statusSalvamento.textContent = message;
 };
 
+const updateThemeLabel = (isDark) => {
+    const labelText = isDark ? 'Modo escuro' : 'Modo claro';
+    const ariaLabel = isDark ? 'Alternar para modo claro' : 'Alternar para modo escuro';
+    if (temaTexto) temaTexto.textContent = labelText;
+    if (temaCheckbox) temaCheckbox.setAttribute('aria-label', ariaLabel);
+};
+
 const applyTheme = (isDark) => {
     document.body.classList.toggle('dark-mode', isDark);
     temaCheckbox.checked = isDark;
+    updateThemeLabel(isDark);
     writeStorage(STORAGE_KEYS.theme, isDark ? 'dark' : 'light');
 };
 
